@@ -106,19 +106,9 @@ public class GnuCashImporter {
  
 		Connection connection = null;
  
-		try {
- 
-			connection = DriverManager.getConnection(
-					"jdbc:postgresql://127.0.0.1:5432/gnucash", "postgres","xxx");
-			import_accounts(connection);
- 
-		} catch (SQLException e) {
- 
-			System.out.println("Connection Failed! Check output console");
-			e.printStackTrace();
-			return;
- 
-		}
+		connection = PostgresConnection.getConnection();
+
+		import_accounts(connection);
  
 		if (connection != null) {
 			System.out.println("You made it, take control your database now!");
