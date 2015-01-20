@@ -1,0 +1,25 @@
+ public | accounts         | table | postgres
+ public | billterms        | table | postgres
+ public | books            | table | postgres
+ public | budget_amounts   | table | postgres
+ public | budgets          | table | postgres
+ public | commodities      | table | postgres
+ public | customers        | table | postgres
+ public | employees        | table | postgres
+ public | entries          | table | postgres
+ public | gnclock          | table | postgres
+ public | invoices         | table | postgres
+ public | jobs             | table | postgres
+ public | lots             | table | postgres
+ public | orders           | table | postgres
+ public | prices           | table | postgres
+ public | recurrences      | table | postgres
+ public | schedxactions    | table | postgres
+ public | slots            | table | postgres
+ public | splits           | table | postgres
+ public | taxtable_entries | table | postgres
+ public | taxtables        | table | postgres
+ public | transactions     | table | postgres
+ public | vendors          | table | postgres
+ public | versions         | table | postgres
+
