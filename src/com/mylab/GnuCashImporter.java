@@ -1,7 +1,5 @@
 package com.mylab;
 
-import org.postgresql.Driver;
-
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -111,7 +109,7 @@ public class GnuCashImporter {
 		try {
  
 			connection = DriverManager.getConnection(
-					"jdbc:postgresql://127.0.0.1:5432/gnucash", "postgres","");
+					"jdbc:postgresql://127.0.0.1:5432/gnucash", "postgres","xxx");
 			import_accounts(connection);
  
 		} catch (SQLException e) {
@@ -167,6 +165,8 @@ public class GnuCashImporter {
 	    				rs.getString("root_template_guid"));
 	    	}
 	    	stmt.close();
+	    	ReadExcelDemo imp1 = new ReadExcelDemo();
+	    	ReadExcelDemo.readAccounts();
 	    	fill_accounts();
 	    	fill_billterms();
 	    	fill_books();
