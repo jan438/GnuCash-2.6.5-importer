@@ -3,6 +3,7 @@ package com.mylab;
 import java.io.File;
 import java.io.FileInputStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Iterator;
@@ -235,48 +236,59 @@ public class Customers {
 	}
 	
 	private static void insert_into_table() {
-		Statement stmt;
+		PreparedStatement preparedStatement = null;
 		System.out.println("Inserting records into the customers table...");
-	      try {
-			stmt = conn.createStatement();
-			String sql = "INSERT INTO Registration " + "VALUES (" + 
-			UUID.randomUUID() + "," +
-			getName() + "," +
-			getId() + "," +
-			getNotes() + "," + 
-			getActive() + "," + 
-			getDiscount_num() + "," + 
-			getDiscount_denom() + "," + 
-			getCredit_num() + "," +
-			getCredit_denom() + "," +
-			getCurrency() + "," +
-			getTax_override() + "," +
-			getAddr_name() + "," +
-			getAddr_addr1() + "," +
-			getAddr_addr2() + "," +
-			getAddr_addr3() + "," +
-			getAddr_addr4() + "," +
-			getAddr_phone() + "," +
-			getAddr_fax() + "," +
-			getAddr_email() + "," +
-			getShipaddr_name() + "," +
-			getShipaddr_addr1() + "," +
-			getShipaddr_addr2() + "," +
-			getShipaddr_addr3() + "," +
-			getShipaddr_addr4() + "," +
-			getShipaddr_phone() + "," +
-			getShipaddr_fax() + "," +
-			getShipaddr_email() + "," +
-			getTerms() + "," +
-			getTax_included() + "," +
-			getTaxtable() + ")";
+	    try {
+	    	//										1   2     3   4       5        6           7                8            9             10          11			12        13        14            15          16        17          18          19          20            21              22               23                24             25             26            27            28      29            30
+			String sql = "INSERT INTO customers (guid, name, id, notes, active, discount_num, discount_denom, credit_num, credit_denom, currency, tax_override, addr_name, addr_addr1, addr_addr2, addr_addr3, addr_addr4, addr_phone, addr_fax, addr_email, shipaddr_name, shipaddr_addr1, shipaddr_addr2, shipaddr_addr3, shipaddr_addr4, shipaddr_phone, shipaddr_fax, shipaddr_email, terms, tax_included, taxtable) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			preparedStatement = conn.prepareStatement(sql);			 
+			preparedStatement.setString(1, UUID.randomUUID().toString());
+			preparedStatement.setString(2, getName());
+			preparedStatement.setString(3, getId());
+			preparedStatement.setString(4, getNotes()); 
+			preparedStatement.setInt(5, getActive()); 
+			preparedStatement.setLong(6, getDiscount_num()); 
+			preparedStatement.setLong(7, getDiscount_denom()); 
+			preparedStatement.setLong(8, getCredit_num());
+			preparedStatement.setLong(9, getCredit_denom());
+			preparedStatement.setString(10, getCurrency());
+			preparedStatement.setInt(11, getTax_override());
+			preparedStatement.setString(12, getAddr_name());
+			preparedStatement.setString(13, getAddr_addr1());
+			preparedStatement.setString(14, getAddr_addr2());
+			preparedStatement.setString(15, getAddr_addr3());
+			preparedStatement.setString(16, getAddr_addr4());
+			preparedStatement.setString(17, getAddr_phone());
+			preparedStatement.setString(18, getAddr_fax());
+			preparedStatement.setString(19, getAddr_email());
+			preparedStatement.setString(20, getShipaddr_name());
+			preparedStatement.setString(21, getShipaddr_addr1());
+			preparedStatement.setString(22, getShipaddr_addr2());
+			preparedStatement.setString(23, getShipaddr_addr3());
+			preparedStatement.setString(24, getShipaddr_addr4());
+			preparedStatement.setString(25, getShipaddr_phone());
+			preparedStatement.setString(26, getShipaddr_fax());
+			preparedStatement.setString(27, getShipaddr_email());
+			preparedStatement.setString(28, getTerms());
+			preparedStatement.setInt(29, getTax_included());
+			preparedStatement.setString(30, getTaxtable());
 			System.out.println(sql);
-	      stmt.executeUpdate(sql);
-	      stmt.close();
-		} catch (SQLException e) {
+			preparedStatement.executeUpdate();
+		} 
+	    catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	    finally {	 
+	    	if (preparedStatement != null) {
+	    		try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	    	}
+	    }
 	    System.out.println("Inserted records into the customers table...");
 	}
 	public static void readAccounts() {
