@@ -83,7 +83,7 @@ public class GnuCashImporter {
 	    	Budget_amounts.fill_budget_amounts();
 	    	Budgets.fill_budgets();
 	    	Commodities.fill_commodities();
-	    	Customers.fill_customers();
+	    	Customers.fill_customers(connection);
 	    	Employees.fill_employees();
 	    	Entries.fill_entries();
 	    	//fill_gnclock();
