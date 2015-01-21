@@ -75,8 +75,6 @@ public class GnuCashImporter {
 	    				rs.getString("root_template_guid"));
 	    	}
 	    	stmt.close();
-	    	ReadExcelDemo imp1 = new ReadExcelDemo();
-	    	ReadExcelDemo.readAccounts();
 	    	Accounts.fill_accounts();
 	    	Billterms.fill_billterms();
 	    	Books.fill_books();

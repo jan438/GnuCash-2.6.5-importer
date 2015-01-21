@@ -14,7 +14,7 @@ public class ReadExcelDemo {
   
 	public static void readAccounts() {
       try {
-          FileInputStream file = new FileInputStream(new File("/home/marijke/SnelStartExport0001.xlsx"));
+          FileInputStream file = new FileInputStream(new File("/home/marijke/SnelStartCustomerExport0001.xlsx"));
 
           //Create Workbook instance holding reference to .xlsx file
           @SuppressWarnings("resource")
