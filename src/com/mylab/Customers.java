@@ -15,6 +15,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class Customers {
 	
+	static Connection conn;
+	
 	private UUID guid;
 	private static String name;
 	private static String id;
@@ -226,11 +228,15 @@ public class Customers {
 	public static void setTaxtable(String itaxtable) {
 		taxtable = itaxtable;
 	}
-	public static void fill_customers(Connection conn) {
-		  Statement stmt;
+	public static void fill_customers(Connection iconn) {
+		  conn = iconn;
 	      System.out.println("Reading records from the spreadsheet...");
 	      readAccounts();
-		  System.out.println("Inserting records into the customers table...");
+	}
+	
+	private static void insert_into_table() {
+		Statement stmt;
+		System.out.println("Inserting records into the customers table...");
 	      try {
 			stmt = conn.createStatement();
 			String sql = "INSERT INTO Registration " + "VALUES (" + 
@@ -264,6 +270,7 @@ public class Customers {
 			getTerms() + "," +
 			getTax_included() + "," +
 			getTaxtable() + ")";
+			System.out.println(sql);
 	      stmt.executeUpdate(sql);
 	      stmt.close();
 		} catch (SQLException e) {
@@ -412,6 +419,7 @@ public class Customers {
 		        	column++;
 		        }
 		        System.out.println("");
+		        insert_into_table();
 		      }
 		      file.close();
 		}
