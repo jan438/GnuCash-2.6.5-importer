@@ -18,7 +18,7 @@ public class Customers {
 	
 	static Connection conn;
 	
-	private UUID guid;
+	private static String guid;
 	private static String name;
 	private static String id;
 	private static String notes;
@@ -49,11 +49,11 @@ public class Customers {
 	private static int tax_included;
 	private static String taxtable;
 
-	public UUID getGuid() {
+	public static String getGuid() {
 		return guid;
 	}
-	public void setGuid(UUID guid) {
-		this.guid = guid;
+	public static void setGuid(String iguid) {
+		guid = iguid;
 	}
 	public static String getName() {
 		return name;
@@ -312,118 +312,122 @@ public class Customers {
 		        	Cell cell = cellIterator.next();
 		        	switch (column) {
 		        	case 0 :if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+        						setGuid(cell.getStringCellValue());
+        					}
+        					break;
+		        	case 1 :if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 		        				setName(cell.getStringCellValue());
 		        			}
 		        			break;
-		        	case 1 :if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 2 :if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
         						setId(cell.getStringCellValue());
         			 		}
         			 		break;
-		        	case 2 :if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 3 :if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setNotes(cell.getStringCellValue());
 			 		 		}
 			 		 		break;
-		        	case 3 :if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+		        	case 4 :if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
         						setActive((int) cell.getNumericCellValue());
         			 		}
         					break;        					
-		        	case 4 :if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+		        	case 5 :if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
 								setDiscount_num((long) cell.getNumericCellValue());
 			 				}
 			 				break;
-		        	case 5 :if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+		        	case 6 :if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
 		        				setDiscount_denom((long) cell.getNumericCellValue());
 	 		 				}
 	 		 				break;
-		        	case 6 :if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+		        	case 7 :if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
 								setCredit_num((long) cell.getNumericCellValue());
 			 				}
 		        			break;
-        			case 7 :if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+        			case 8 :if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
         						setCredit_denom((long) cell.getNumericCellValue());
         					}
         					break;
-        			case 8 :if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+        			case 9 :if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
         						setCurrency(cell.getStringCellValue());
         					}
         					break;
-        			case 9 :if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+        			case 10:if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
 								setTax_override((int) cell.getNumericCellValue());
 							}
 							break;
-		        	case 10:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 11:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
         						setAddr_name(cell.getStringCellValue());
         					}
         					break;
-		        	case 11:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 12:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setAddr_addr1(cell.getStringCellValue());
 			 				}
 			 				break;
-		        	case 12:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 13:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setAddr_addr2(cell.getStringCellValue());
 	 		 				}
 	 		 				break;
-		        	case 13:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 14:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setAddr_addr3(cell.getStringCellValue());
 			 				}
 							break;
-		        	case 14:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 15:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setAddr_addr4(cell.getStringCellValue());
 	 						}
 	 						break;
-		        	case 15:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 16:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setAddr_phone(cell.getStringCellValue());
 		 					}
 		 					break;
-		        	case 16:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 17:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setAddr_fax(cell.getStringCellValue());
 	 						}
         					break;
-		        	case 17:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 18:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setAddr_email(cell.getStringCellValue());
 							}
 							break;
-		        	case 18:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 19:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setShipaddr_name(cell.getStringCellValue());
 							}
 							break;
-		        	case 19:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 20:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setShipaddr_addr1(cell.getStringCellValue());
 							}
 							break;
-		        	case 20:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 21:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setShipaddr_addr2(cell.getStringCellValue());
 							}
 							break;
-		        	case 21:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 22:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setShipaddr_addr3(cell.getStringCellValue());
 	 						}
 	 						break;
-		        	case 22:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 23:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setShipaddr_addr4(cell.getStringCellValue());
 		 					}
 		 					break;
-		        	case 23:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 24:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setShipaddr_phone(cell.getStringCellValue());
 	 						}
 							break;
-		        	case 24:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 25:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setShipaddr_fax(cell.getStringCellValue());
 							}
 							break;
-		        	case 25:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 26:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setShipaddr_email(cell.getStringCellValue());
  							}
  							break;
-		        	case 26:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 27:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setTerms(cell.getStringCellValue());
 							}
 							break;
-		        	case 27:if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+		        	case 28:if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
 								setTax_included((int) cell.getNumericCellValue());
 							}
 							break;
-		        	case 28:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		        	case 29:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 								setTaxtable(cell.getStringCellValue());
 							}
 							break;
