@@ -10,96 +10,16 @@ public class GnuCashImporter {
 	
 	static Statement stmt = null;
     
-	private static void fill_accounts() {
-    	
-    };
-	private static void fill_billterms() {
-		
-	};
-	private static void fill_books() {
-		
-	};
-	private static void fill_budget_amounts() {
-		
-	};
-	private static void fill_budgets() {
-		
-	};
-	private static void fill_commodities() {
-		
-	};
-	private static void fill_customers() {
-		
-	};
-	private static void fill_employees() {
-		
-	};
-	private static void fill_entries() {
-		
-	};
-	private static void fill_gnclock() {
-		
-	};
-	private static void fill_invoices() {
-		
-	};
-	private static void fill_jobs() {
-		
-	};
-	private static void fill_lots() {
-		
-	};
-	private static void fill_orders() {
-		
-	};
-	private static void fill_prices() {
-		
-	};
-	private static void fill_recurrences() {
-		
-	};
-	private static void fill_schedxactions() {
-		
-	};
-	private static void fill_slots() {
-		
-	};
-	private static void fill_splits() {
-		
-	};
-	private static void fill_taxtable_entries() {
-		
-	};
-	private static void fill_taxtables() {
-		
-	};
-	private static void fill_transactions() {
-		
-	};
-	private static void fill_vendors() {
-		
-	};
-	private static void fill_versions() {
-		
-	};
-
 	public static void main(String[] args) {
         
     	System.out.println("Hello, World");
-		System.out.println("-------- PostgreSQL "
-				+ "JDBC Connection Testing ------------");
  
 		try {
- 
-			Class.forName("org.postgresql.Driver");
- 
-		} catch (ClassNotFoundException e) {
- 
-			System.out.println("Where is your PostgreSQL JDBC Driver? "
-					+ "Include in your library path!");
+			Class.forName("org.postgresql.Driver"); 
+		} catch (ClassNotFoundException e) { 
+			System.out.println("Where is your PostgreSQL JDBC Driver? "	+ "Include in your library path!");
 			e.printStackTrace();
-			return;
- 
+			return; 
 		}
  
 		System.out.println("PostgreSQL JDBC Driver Registered!");
@@ -157,30 +77,30 @@ public class GnuCashImporter {
 	    	stmt.close();
 	    	ReadExcelDemo imp1 = new ReadExcelDemo();
 	    	ReadExcelDemo.readAccounts();
-	    	fill_accounts();
-	    	fill_billterms();
-	    	fill_books();
-	    	fill_budget_amounts();
-	    	fill_budgets();
-	    	fill_commodities();
-	    	fill_customers();
-	    	fill_employees();
-	    	fill_entries();
-	    	fill_gnclock();
-	    	fill_invoices();
-	    	fill_jobs();
-	    	fill_lots();
-	    	fill_orders();
-	    	fill_prices();
-	    	fill_recurrences();
-	    	fill_schedxactions();
-	    	fill_slots();
-	    	fill_splits();
-	    	fill_taxtable_entries();
-	    	fill_taxtables();
-	    	fill_transactions();
-	    	fill_vendors();
-	    	fill_versions();
+	    	Accounts.fill_accounts();
+	    	Billterms.fill_billterms();
+	    	Books.fill_books();
+	    	Budget_amounts.fill_budget_amounts();
+	    	Budgets.fill_budgets();
+	    	Commodities.fill_commodities();
+	    	Customers.fill_customers();
+	    	Employees.fill_employees();
+	    	Entries.fill_entries();
+	    	//fill_gnclock();
+	    	Invoices.fill_invoices();
+	    	Jobs.fill_jobs();
+	    	Lots.fill_lots();
+	    	Orders.fill_orders();
+	    	Prices.fill_prices();
+	    	Recurrences.fill_recurrences();
+	    	Schedxactions.fill_schedxactions();
+	    	Slots.fill_slots();
+	    	Splits.fill_splits();
+	    	Taxtable_entries.taxtable_entries();
+	    	Taxtables.fill_taxtables();
+	    	Transactions.fill_transactions();
+	    	Vendors.fill_vendors();
+	    	//fill_versions();
 	    	connection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
