@@ -107,7 +107,14 @@ public class Customers {
 		return currency;
 	}
 	public static void setCurrency(String icurrency) {
-		currency = icurrency;
+		switch (icurrency) {
+		case "USD (US-dollar)" : currency = "321e16257c7ecb0d1c5db8ce371ef713";
+							     break;
+		case "EUR (euro)" :      currency = "bfe84ab0a57cb83fa77fb83c7a748496";
+	       						 break;
+		default                : currency = "bfe84ab0a57cb83fa77fb83c7a748496";
+	       						 break;
+		}
 	}
 	public static int getTax_override() {
 		return tax_override;

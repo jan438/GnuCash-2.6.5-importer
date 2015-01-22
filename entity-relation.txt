@@ -1,0 +1,4 @@
+customers jobs invoices
+
+bfe84ab0a57cb83fa77fb83c7a748496	EUR (euro)
+321e16257c7ecb0d1c5db8ce371ef713	USD (US-dollar)
