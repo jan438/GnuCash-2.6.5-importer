@@ -234,7 +234,17 @@ public class Customers {
 		return taxtable;
 	}
 	public static void setTaxtable(String itaxtable) {
-		taxtable = itaxtable;
+		
+		switch (itaxtable) {
+		case "Hoog" : taxtable = "04f101043ee25ab32ad6205c2ae270d7";
+					  break;
+		case "Laag" : taxtable = "977875ef9cbbd8f38c182f238a4a8e1f";
+	       			  break;
+		case "Nul" :  taxtable = "74d1c51d457525f52e8d0377fabbc1a9";
+			 		  break;
+		default    :  taxtable = "74d1c51d457525f52e8d0377fabbc1a9";
+	       			  break;
+		}
 	}
 	public static void fill_customers(Connection iconn) {
 		  conn = iconn;
