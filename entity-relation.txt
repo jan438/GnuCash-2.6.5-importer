@@ -7,3 +7,10 @@ bfe84ab0a57cb83fa77fb83c7a748496	EUR (euro)
 719db0ae403b6234e5c5a71f33817d48	Voorwaarde0001	Betaling dient te geschieden binnen 10 dagen na factuurdatum op een door gebruiker aan te geven wijze.
 
 04f101043ee25ab32ad6205c2ae270d7	Belasting Tabel Hoog 21,00%
+
+tax_included    ja				1
+		neen				2
+		algemene instelling gebuiken	3
+
+discount_num	1100000	Korting (percentage)	11
+credit_num	150000	Krediet limiet		1500,00		
