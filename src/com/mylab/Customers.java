@@ -239,7 +239,6 @@ public class Customers {
 		PreparedStatement preparedStatement = null;
 		System.out.println("Inserting records into the customers table...");
 	    try {
-	    	//										1   2     3   4       5        6           7                8            9             10          11			12        13        14            15          16        17          18          19          20            21              22               23                24             25             26            27            28      29            30
 			String sql = "INSERT INTO customers (guid, name, id, notes, active, discount_num, discount_denom, credit_num, credit_denom, currency, tax_override, addr_name, addr_addr1, addr_addr2, addr_addr3, addr_addr4, addr_phone, addr_fax, addr_email, shipaddr_name, shipaddr_addr1, shipaddr_addr2, shipaddr_addr3, shipaddr_addr4, shipaddr_phone, shipaddr_fax, shipaddr_email, terms, tax_included, taxtable) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			preparedStatement = conn.prepareStatement(sql);			 
 			preparedStatement.setString(1, GenerateUUID.getUUID());
