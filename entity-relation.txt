@@ -2,3 +2,6 @@ customers jobs invoices
 
 bfe84ab0a57cb83fa77fb83c7a748496	EUR (euro)
 321e16257c7ecb0d1c5db8ce371ef713	USD (US-dollar)
+
+
+719db0ae403b6234e5c5a71f33817d48	Voorwaarde0001	Betaling dient te geschieden binnen 10 dagen na factuurdatum op een door gebruiker aan te geven wijze.
