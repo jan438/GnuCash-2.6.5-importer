@@ -72,11 +72,11 @@ public class Vendors {
 		}
 		public static void setCurrency(String icurrency) {
 			switch (icurrency) {
-			case "USD (US-dollar)" : currency = "321e16257c7ecb0d1c5db8ce371ef713";
+			case "USD (US-dollar)" : currency = "bad16cc43a76d8af252f7e657db12258";
 								     break;
-			case "EUR (euro)" :      currency = "bfe84ab0a57cb83fa77fb83c7a748496";
+			case "EUR (euro)" :      currency = "5145eeb060de08ebd599894926d12838";
 		       						 break;
-			default                : currency = "bfe84ab0a57cb83fa77fb83c7a748496";
+			default                : currency = "5145eeb060de08ebd599894926d12838";
 		       						 break;
 			}
 		}
@@ -137,8 +137,16 @@ public class Vendors {
 		public static String getTerms() {
 			return terms;
 		}
-		public static void setTerms(String iterms) {
-			terms = iterms;
+		public static void setTerms(int iterms) {
+			switch (iterms) {
+				case 1 : terms = "4b18732ca655c3d0bc90523103f10c80";
+					 	 break;
+				case 2 : terms = "f5e9f5fd48c7487894d4d51c0ab5693e";
+					 	 break;
+				default: terms = "4b18732ca655c3d0bc90523103f10c80";
+				         break;
+		    		
+			}
 		}
 		public static String getTax_included() {
 			return tax_included;
@@ -151,13 +159,13 @@ public class Vendors {
 		}
 		public static void setTaxtable(String itaxtable) {		
 			switch (itaxtable) {
-			case "Hoog" : taxtable = "04f101043ee25ab32ad6205c2ae270d7";
+			case "Hoog" : taxtable = "e6668e9fc634bf37359f6dbec85a029e";
 						  break;
-			case "Laag" : taxtable = "977875ef9cbbd8f38c182f238a4a8e1f";
+			case "Laag" : taxtable = "e5d6f32651e050e9ea8055cb278b2eab";
 		       			  break;
-			case "Nul" :  taxtable = "74d1c51d457525f52e8d0377fabbc1a9";
+			case "Nul" :  taxtable = "ca23009fb72496e2437032aa7ce1c45c";
 				 		  break;
-			default    :  taxtable = "74d1c51d457525f52e8d0377fabbc1a9";
+			default    :  taxtable = "e6668e9fc634bf37359f6dbec85a029e";
 		       			  break;
 			}
 		}
@@ -290,8 +298,8 @@ public class Vendors {
 									setAddr_email(cell.getStringCellValue());
 								}
 								break;
-			        	case 15:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
-									setTerms(cell.getStringCellValue());
+			        	case 15:if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+									setTerms((int) cell.getNumericCellValue());
 								}
 								break;
 			        	case 16:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {

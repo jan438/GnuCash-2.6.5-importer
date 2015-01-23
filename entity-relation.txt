@@ -1,12 +1,17 @@
+Taxtables
+ca23009fb72496e2437032aa7ce1c45c	Nul
+e5d6f32651e050e9ea8055cb278b2eab	Laag
+e6668e9fc634bf37359f6dbec85a029e	Hoog
+
+Currencies
+5145eeb060de08ebd599894926d12838	EUR (euro)
+bad16cc43a76d8af252f7e657db12258	USD (US-dollar)
+
+Billterms
+4b18732ca655c3d0bc90523103f10c80	1	Betaling dient te geschieden binnen 10 dagen na factuurdatum op een door gebruiker aan te geven wijze.
+f5e9f5fd48c7487894d4d51c0ab5693e	2	Reclames dient u binnen een week na dagtekening van de originele factuur schriftelijk kenbaar te maken.
+
 customers jobs invoices
-
-bfe84ab0a57cb83fa77fb83c7a748496	EUR (euro)
-321e16257c7ecb0d1c5db8ce371ef713	USD (US-dollar)
-
-
-719db0ae403b6234e5c5a71f33817d48	Voorwaarde0001	Betaling dient te geschieden binnen 10 dagen na factuurdatum op een door gebruiker aan te geven wijze.
-
-04f101043ee25ab32ad6205c2ae270d7	Belasting Tabel Hoog 21,00%
 
 tax_included    ja				1
 		neen				2

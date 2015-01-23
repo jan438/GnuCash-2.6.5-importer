@@ -81,8 +81,8 @@ public class GnuCashImporter {
 	    	Budget_amounts.fill_budget_amounts();
 	    	Budgets.fill_budgets();
 	    	Commodities.fill_commodities();*/
-/*	    	Customers.fill_customers(connection);
-	    	Employees.fill_employees();
+/*	    	Customers.fill_customers(connection); */
+/*	    	Employees.fill_employees();
 	    	Entries.fill_entries();
 	    	fill_gnclock();
 	    	Invoices.fill_invoices();
@@ -96,8 +96,8 @@ public class GnuCashImporter {
 	    	Splits.fill_splits();
 	    	Taxtable_entries.taxtable_entries();
 	    	Taxtables.fill_taxtables();
-	    	Transactions.fill_transactions();
-*/	    	Vendors.fill_vendors(connection);
+	    	Transactions.fill_transactions();    */
+	    	Vendors.fill_vendors(connection);
 	    	//fill_versions();
 	    	connection.close();
 		} catch (SQLException e) {
