@@ -205,43 +205,71 @@ public class Employees {
 						setId(cell.getStringCellValue());
 					}
 					break;
-					case 4 :if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
-						setCurrency(cell.getStringCellValue());
+					case 3 :if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+						setLanguage(cell.getStringCellValue());
 					}
-					break;
+					break;				
+					case 4 :if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+						setAcl(cell.getStringCellValue());
+					}
+					break;				
 					case 5 :if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
 						setActive((int) cell.getNumericCellValue());
 					}
 					break;
+					case 6 :if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+						setCurrency(cell.getStringCellValue());
+					}
+					break;				
 					case 7: if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+						setCreditcard(cell.getStringCellValue());
+					}
+					break;
+					case 8: if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+						setWorkday_num((long) cell.getNumericCellValue());
+					}
+					break;
+					case 9: if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+						setWorkday_denom((long) cell.getNumericCellValue());
+					}
+					break;
+					case 10: if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+						setRate_num((long) cell.getNumericCellValue());
+					}
+					break;
+					case 11: if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+						setRate_denom((long) cell.getNumericCellValue());
+					}
+					break;
+					case 12: if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 						setAddr_name(cell.getStringCellValue());
 					}
 					break;
-					case 8: if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+					case 13: if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 						setAddr_addr1(cell.getStringCellValue());
 					}
 					break;
-					case 9 :if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+					case 14 :if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 						setAddr_addr2(cell.getStringCellValue());
 					}
 					break;
-					case 10:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+					case 15:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 						setAddr_addr3(cell.getStringCellValue());
 					}
 					break;
-					case 11:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+					case 16:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 						setAddr_addr4(cell.getStringCellValue());
 					}
 					break;
-					case 12:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+					case 17:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 						setAddr_phone(cell.getStringCellValue());
 					}
 					break;
-					case 13:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+					case 18:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 						setAddr_fax(cell.getStringCellValue());
 					}
 					break;
-					case 14:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+					case 19:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 						setAddr_email(cell.getStringCellValue());
 					}
 					break;
