@@ -27,7 +27,7 @@ public class GnuCashImporter {
  
 		connection = PostgresConnection.getConnection();
 
-		import_accounts(connection);
+		import_employees(connection);
  
 		if (connection != null) {
 			System.out.println("You made it, take control your database now!");
@@ -36,7 +36,7 @@ public class GnuCashImporter {
 		}
 	}
 
-	private static void import_accounts(Connection connection) {
+	private static void import_employees(Connection connection) {
 	    try {
 	    	stmt = connection.createStatement();
 	    	String sql = "SELECT * FROM accounts;";
@@ -80,9 +80,9 @@ public class GnuCashImporter {
 	    	Budget_amounts.fill_budget_amounts();
 	    	Budgets.fill_budgets();
 	    	Commodities.fill_commodities();*/
-	    	Customers.fill_customers(connection); 
-/*	    	Employees.fill_employees();
-	    	Entries.fill_entries();
+/*	    	Customers.fill_customers(connection); */
+	    	Employees.fill_employees(connection);
+/*	    	Entries.fill_entries();
 	    	fill_gnclock();
 	    	Invoices.fill_invoices();
 	    	Jobs.fill_jobs();
@@ -96,7 +96,7 @@ public class GnuCashImporter {
 	    	Taxtable_entries.taxtable_entries();
 	    	Taxtables.fill_taxtables();
 	    	Transactions.fill_transactions();    */
-	    	Vendors.fill_vendors(connection);
+/*	    	Vendors.fill_vendors(connection);	 */
 	    	//fill_versions();
 	    	connection.close();
 		} catch (SQLException e) {

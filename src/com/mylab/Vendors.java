@@ -5,9 +5,7 @@ import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Iterator;
-import java.util.UUID;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -172,7 +170,7 @@ public class Vendors {
 		public static void fill_vendors(Connection iconn) {
 			  conn = iconn;
 		      System.out.println("Reading records from the spreadsheet...");
-		      readAccounts();
+		      readVendors();
 		}		
 		private static void insert_into_table() {
 			PreparedStatement preparedStatement = null;
@@ -218,7 +216,7 @@ public class Vendors {
 		    }
 		    System.out.println("Inserted records into the vendors table...");
 		}
-		public static void readAccounts() {
+		public static void readVendors() {
 			try {
 				FileInputStream file = new FileInputStream(new File("/home/marijke/GnuCash-2.6.5-importer/GnuCash-2.6.5-importer/SnelStartVendorExport0001.xlsx"));
 

@@ -29,3 +29,7 @@ Betaling via Assets Account Accounts Receivable
 vendors jobs invoices
 
 Betaling via Passiva Account Accounts Payable
+
+employees
+
+
