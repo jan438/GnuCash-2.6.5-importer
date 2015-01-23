@@ -75,16 +75,16 @@ public class GnuCashImporter {
 	    				rs.getString("root_template_guid"));
 	    	}
 	    	stmt.close();
-	    	Accounts.fill_accounts();
+/*	    	Accounts.fill_accounts();
 	    	Billterms.fill_billterms();
 	    	Books.fill_books();
 	    	Budget_amounts.fill_budget_amounts();
 	    	Budgets.fill_budgets();
-	    	Commodities.fill_commodities();
-	    	Customers.fill_customers(connection);
+	    	Commodities.fill_commodities();*/
+/*	    	Customers.fill_customers(connection);
 	    	Employees.fill_employees();
 	    	Entries.fill_entries();
-	    	//fill_gnclock();
+	    	fill_gnclock();
 	    	Invoices.fill_invoices();
 	    	Jobs.fill_jobs();
 	    	Lots.fill_lots();
@@ -97,7 +97,7 @@ public class GnuCashImporter {
 	    	Taxtable_entries.taxtable_entries();
 	    	Taxtables.fill_taxtables();
 	    	Transactions.fill_transactions();
-	    	Vendors.fill_vendors();
+*/	    	Vendors.fill_vendors(connection);
 	    	//fill_versions();
 	    	connection.close();
 		} catch (SQLException e) {

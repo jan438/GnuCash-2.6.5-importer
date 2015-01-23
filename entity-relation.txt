@@ -21,6 +21,6 @@ tax_override    ja		1
 Betaling via Assets Account Accounts Receivable
 
 
-vendors
+vendors jobs invoices
 
 Betaling via Passiva Account Accounts Payable
