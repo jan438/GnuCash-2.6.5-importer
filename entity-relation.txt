@@ -1,15 +1,21 @@
 Taxtables
-ca23009fb72496e2437032aa7ce1c45c	Nul
-e5d6f32651e050e9ea8055cb278b2eab	Laag
-e6668e9fc634bf37359f6dbec85a029e	Hoog
+
+6deb36a0983f1c3bfe4afc849db38a41	Nul
+507ad93ecb73228fa77c91bfce8f2573	Laag
+d0fca9efae5d7508e5220820c4daf512	Hoog
+
+77032160edc8452f9924223a1bdb3d36	NulPayable
+6e1d76a97dfdf3150dc6f288056aca12	LaagPayable
+784d53f9b576ec32ec61f06724f8c073	HoogPayable
+
 
 Currencies
-5145eeb060de08ebd599894926d12838	EUR (euro)
-bad16cc43a76d8af252f7e657db12258	USD (US-dollar)
+ec61a1e3e3b87210d616b00fae7cb0b1	EUR (euro)
+de8c75f5541315dc52bf69af5cd44bb9	USD (US-dollar)
 
 Billterms
-4b18732ca655c3d0bc90523103f10c80	1	Betaling dient te geschieden binnen 10 dagen na factuurdatum op een door gebruiker aan te geven wijze.
-f5e9f5fd48c7487894d4d51c0ab5693e	2	Reclames dient u binnen een week na dagtekening van de originele factuur schriftelijk kenbaar te maken.
+425286eb4f83b2e5f59d8972b31efaff	1	Betaling dient te geschieden binnen 10 dagen na factuurdatum op een door gebruiker aan te geven wijze.
+0e4fd62bcac46061d218e2ff3fb04cf4	2	Reclames dient u binnen een week na dagtekening van de originele factuur schriftelijk kenbaar te maken.
 
 customers jobs invoices
 
@@ -33,7 +39,7 @@ Betaling via Passiva Account Accounts Payable
 
 employees
 
-b092cd1360137e3ba1f55a16f04cbaad	Creditkaart
-ca90384245405759326a35aa4f68035b	Kredietlijn
+3ca333c52826fd2085aa6a2e8f602f42	Creditkaart
+716f55cdf6b95b291be9a78f8aefb36d	Kredietlijn
 
 

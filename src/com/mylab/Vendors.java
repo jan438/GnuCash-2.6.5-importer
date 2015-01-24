@@ -69,14 +69,7 @@ public class Vendors {
 			return currency;
 		}
 		public static void setCurrency(String icurrency) {
-			switch (icurrency) {
-			case "USD (US-dollar)" : currency = "bad16cc43a76d8af252f7e657db12258";
-								     break;
-			case "EUR (euro)" :      currency = "5145eeb060de08ebd599894926d12838";
-		       						 break;
-			default                : currency = "5145eeb060de08ebd599894926d12838";
-		       						 break;
-			}
+			currency = GnuCashImporter.currencies.get(icurrency);
 		}
 		public static int getTax_override() {
 			return tax_override;
@@ -136,15 +129,7 @@ public class Vendors {
 			return terms;
 		}
 		public static void setTerms(int iterms) {
-			switch (iterms) {
-				case 1 : terms = "4b18732ca655c3d0bc90523103f10c80";
-					 	 break;
-				case 2 : terms = "f5e9f5fd48c7487894d4d51c0ab5693e";
-					 	 break;
-				default: terms = "4b18732ca655c3d0bc90523103f10c80";
-				         break;
-		    		
-			}
+			terms = GnuCashImporter.terms.get(iterms);
 		}
 		public static String getTax_included() {
 			return tax_included;
@@ -156,16 +141,7 @@ public class Vendors {
 			return taxtable;
 		}
 		public static void setTaxtable(String itaxtable) {		
-			switch (itaxtable) {
-			case "Hoog" : taxtable = "e6668e9fc634bf37359f6dbec85a029e";
-						  break;
-			case "Laag" : taxtable = "e5d6f32651e050e9ea8055cb278b2eab";
-		       			  break;
-			case "Nul" :  taxtable = "ca23009fb72496e2437032aa7ce1c45c";
-				 		  break;
-			default    :  taxtable = "e6668e9fc634bf37359f6dbec85a029e";
-		       			  break;
-			}
+			taxtable = GnuCashImporter.taxes.get(itaxtable);
 		}
 		public static void fill_vendors(Connection iconn) {
 			  conn = iconn;

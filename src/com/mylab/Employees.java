@@ -71,14 +71,7 @@ public class Employees {
 		return currency;
 	}
 	public static void setCurrency(String icurrency) {
-		switch (icurrency) {
-			case "USD (US-dollar)" : currency = "bad16cc43a76d8af252f7e657db12258";
-				                     break;
-			case "EUR (euro)" :      currency = "5145eeb060de08ebd599894926d12838";
-									 break;
-			default                : currency = "5145eeb060de08ebd599894926d12838";
-									 break;
-		}
+		currency = GnuCashImporter.currencies.get(icurrency);
 	}
 	public static String getAcl() {
 		return acl;
@@ -96,14 +89,7 @@ public class Employees {
 		return creditcard;
 	}
 	public static void setCreditcard(String icreditcard) {
-		switch (icreditcard) {
-		case "Creditkaart" : 	creditcard = "b092cd1360137e3ba1f55a16f04cbaad";
-			                    break;
-		case "Kredietlijn" : 	creditcard = "ca90384245405759326a35aa4f68035b";
-								break;
-		default : 				creditcard = "";
-								break;
-		}
+		creditcard = GnuCashImporter.credits.get(icreditcard);
 	}
 	public static long getWorkday_denom() {
 		return workday_denom;

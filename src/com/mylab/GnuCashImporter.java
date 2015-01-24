@@ -4,16 +4,33 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GnuCashImporter {
 	
 	static Statement stmt = null;
-    
+	static Map<String,String> currencies = new HashMap<String,String>();
+	static Map<String,String> credits = new HashMap<String,String>();
+	static Map<String,String> taxes = new HashMap<String,String>();
+	static Map<Integer,String> terms = new HashMap<Integer,String>();
+	
 	public static void main(String[] args) {
         
     	System.out.println("Hello, World");
  
-		try {
+    	currencies.put("EUR (euro)","ec61a1e3e3b87210d616b00fae7cb0b1");
+    	currencies.put("USD (US-dollar)","de8c75f5541315dc52bf69af5cd44bb9");
+    	credits.put("Creditkaart","3ca333c52826fd2085aa6a2e8f602f42");
+    	credits.put("Kredietlijn","716f55cdf6b95b291be9a78f8aefb36d");
+    	taxes.put("Hoog","d0fca9efae5d7508e5220820c4daf512");
+    	taxes.put("Laag","507ad93ecb73228fa77c91bfce8f2573");
+    	taxes.put("Nul","6deb36a0983f1c3bfe4afc849db38a41");
+		terms.put(1,"425286eb4f83b2e5f59d8972b31efaff");
+		terms.put(2,"0e4fd62bcac46061d218e2ff3fb04cf4");
+		
+		
+    	try {
 			Class.forName("org.postgresql.Driver"); 
 		} catch (ClassNotFoundException e) { 
 			System.out.println("Where is your PostgreSQL JDBC Driver? "	+ "Include in your library path!");
