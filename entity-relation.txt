@@ -30,6 +30,10 @@ vendors jobs invoices
 
 Betaling via Passiva Account Accounts Payable
 
+
 employees
+
+b092cd1360137e3ba1f55a16f04cbaad	Creditkaart
+ca90384245405759326a35aa4f68035b	Kredietlijn
 
 

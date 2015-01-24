@@ -55,6 +55,12 @@ public class Employees {
 	public static void setId(String iid) {
 		id = iid;
 	}
+	public static String getLanguage() {
+		return language;
+	}
+	public static void setLanguage(String language) {
+		Employees.language = language;
+	}
 	public static int getActive() {
 		return active;
 	}
@@ -66,13 +72,56 @@ public class Employees {
 	}
 	public static void setCurrency(String icurrency) {
 		switch (icurrency) {
-		case "USD (US-dollar)" : currency = "bad16cc43a76d8af252f7e657db12258";
-		break;
-		case "EUR (euro)" :      currency = "5145eeb060de08ebd599894926d12838";
-		break;
-		default                : currency = "5145eeb060de08ebd599894926d12838";
-		break;
+			case "USD (US-dollar)" : currency = "bad16cc43a76d8af252f7e657db12258";
+				                     break;
+			case "EUR (euro)" :      currency = "5145eeb060de08ebd599894926d12838";
+									 break;
+			default                : currency = "5145eeb060de08ebd599894926d12838";
+									 break;
 		}
+	}
+	public static String getAcl() {
+		return acl;
+	}
+	public static void setAcl(String acl) {
+		Employees.acl = acl;
+	}
+	public static long getWorkday_num() {
+		return workday_num;
+	}
+	public static void setWorkday_num(long workday_num) {
+		Employees.workday_num = workday_num;
+	}
+	public static String getCreditcard() {
+		return creditcard;
+	}
+	public static void setCreditcard(String icreditcard) {
+		switch (icreditcard) {
+		case "Creditkaart" : 	creditcard = "b092cd1360137e3ba1f55a16f04cbaad";
+			                    break;
+		case "Kredietlijn" : 	creditcard = "ca90384245405759326a35aa4f68035b";
+								break;
+		default : 				creditcard = "";
+								break;
+		}
+	}
+	public static long getWorkday_denom() {
+		return workday_denom;
+	}
+	public static void setWorkday_denom(long iworkday_denom) {
+		workday_denom = iworkday_denom;
+	}
+	public static long getRate_num() {
+		return rate_num;
+	}
+	public static void setRate_num(long irate_num) {
+		rate_num = irate_num;
+	}
+	public static long getRate_denom() {
+		return rate_denom;
+	}
+	public static void setRate_denom(long irate_denom) {
+		rate_denom = irate_denom;
 	}
 	public static String getAddr_name() {
 		return addr_name;
@@ -125,14 +174,14 @@ public class Employees {
 	public static void fill_employees(Connection iconn) {
 		conn = iconn;
 		System.out.println("Reading records from the spreadsheet...");
-		readAccounts();
+		readEmployees();
 	}		
 	private static void insert_into_table() {
 		PreparedStatement preparedStatement = null;
 		System.out.println("Inserting records into the employees table...");
 		try {
-			//                                   1    2     3    4      5        6        7             8            9          10          11         12           13          14        15        16       17        18
-			String sql = "INSERT INTO vendors (guid, name, id, notes, currency, active, tax_override, addr_name, addr_addr1, addr_addr2, addr_addr3, addr_addr4, addr_phone, addr_fax, addr_email, terms, tax_inc, tax_table) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			//                                   1          2     3    4      5        6        7          8            9          10          11         12        13          14        15           16         17            18       19         20        
+			String sql = "INSERT INTO employees (guid, username, id, language, acl, active, currency, ccard_guid, workday_num, workday_denom, rate_num, rate_denom, addr_name, addr_addr1, addr_addr2, addr_addr3, addr_addr4, addr_phone, addr_fax, addr_email) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			preparedStatement = conn.prepareStatement(sql);			 
 			preparedStatement.setString(1, GenerateUUID.getUUID());
 			preparedStatement.setString(2, getName());
@@ -173,9 +222,9 @@ public class Employees {
 		}
 		System.out.println("Inserted records into the vendors table...");
 	}
-	public static void readAccounts() {
+	public static void readEmployees() {
 		try {
-			FileInputStream file = new FileInputStream(new File("/home/marijke/GnuCash-2.6.5-importer/GnuCash-2.6.5-importer/SnelStartVendorExport0001.xlsx"));
+			FileInputStream file = new FileInputStream(new File("/home/marijke/GnuCash-2.6.5-importer/GnuCash-2.6.5-importer/SnelStartEmployeeExport0001.xlsx"));
 
 			//Create Workbook instance holding reference to .xlsx file
 			@SuppressWarnings("resource")
@@ -284,48 +333,6 @@ public class Employees {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-	public static String getLanguage() {
-		return language;
-	}
-	public static void setLanguage(String language) {
-		Employees.language = language;
-	}
-	public static String getAcl() {
-		return acl;
-	}
-	public static void setAcl(String acl) {
-		Employees.acl = acl;
-	}
-	public static long getWorkday_num() {
-		return workday_num;
-	}
-	public static void setWorkday_num(long workday_num) {
-		Employees.workday_num = workday_num;
-	}
-	public static String getCreditcard() {
-		return creditcard;
-	}
-	public static void setCreditcard(String creditcard) {
-		Employees.creditcard = creditcard;
-	}
-	public static long getWorkday_denom() {
-		return workday_denom;
-	}
-	public static void setWorkday_denom(long workday_denom) {
-		Employees.workday_denom = workday_denom;
-	}
-	public static long getRate_num() {
-		return rate_num;
-	}
-	public static void setRate_num(long rate_num) {
-		Employees.rate_num = rate_num;
-	}
-	public static long getRate_denom() {
-		return rate_denom;
-	}
-	public static void setRate_denom(long rate_denom) {
-		Employees.rate_denom = rate_denom;
 	}
 }
 
