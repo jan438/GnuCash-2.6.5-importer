@@ -4,11 +4,6 @@ Taxtables
 507ad93ecb73228fa77c91bfce8f2573	Laag
 d0fca9efae5d7508e5220820c4daf512	Hoog
 
-77032160edc8452f9924223a1bdb3d36	NulPayable
-6e1d76a97dfdf3150dc6f288056aca12	LaagPayable
-784d53f9b576ec32ec61f06724f8c073	HoogPayable
-
-
 Currencies
 ec61a1e3e3b87210d616b00fae7cb0b1	EUR (euro)
 de8c75f5541315dc52bf69af5cd44bb9	USD (US-dollar)
