@@ -152,7 +152,6 @@ public class Vendors {
 			PreparedStatement preparedStatement = null;
 			System.out.println("Inserting records into the vendors table...");
 		    try {
-		    	//                                   1    2     3    4      5        6        7             8            9          10          11         12           13          14        15        16       17        18
 				String sql = "INSERT INTO vendors (guid, name, id, notes, currency, active, tax_override, addr_name, addr_addr1, addr_addr2, addr_addr3, addr_addr4, addr_phone, addr_fax, addr_email, terms, tax_inc, tax_table) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 				preparedStatement = conn.prepareStatement(sql);			 
 				preparedStatement.setString(1, GenerateUUID.getUUID());

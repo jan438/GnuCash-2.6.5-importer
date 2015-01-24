@@ -165,8 +165,7 @@ public class Employees {
 	private static void insert_into_table() {
 		PreparedStatement preparedStatement = null;
 		System.out.println("Inserting records into the employees table...");
-		try {
-			//                                   1          2     3    4      5        6        7          8            9          10          11         12        13          14        15           16         17            18       19         20        
+		try {     
 			String sql = "INSERT INTO employees (guid, username, id, language, acl, active, currency, ccard_guid, workday_num, workday_denom, rate_num, rate_denom, addr_name, addr_addr1, addr_addr2, addr_addr3, addr_addr4, addr_phone, addr_fax, addr_email) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			preparedStatement = conn.prepareStatement(sql);			 
 			preparedStatement.setString(1, GenerateUUID.getUUID());
