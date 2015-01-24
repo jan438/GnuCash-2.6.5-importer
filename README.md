@@ -1,1 +1,2 @@
-# GnuCash-2.6.5-importer
+Copyright 2015 J.M.Boon under the Apache 2.0
+
