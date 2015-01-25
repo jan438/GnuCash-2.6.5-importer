@@ -58,8 +58,8 @@ public class Employees {
 	public static String getLanguage() {
 		return language;
 	}
-	public static void setLanguage(String language) {
-		Employees.language = language;
+	public static void setLanguage(String ilanguage) {
+		language = ilanguage;
 	}
 	public static int getActive() {
 		return active;
@@ -76,14 +76,14 @@ public class Employees {
 	public static String getAcl() {
 		return acl;
 	}
-	public static void setAcl(String acl) {
-		Employees.acl = acl;
+	public static void setAcl(String iacl) {
+		acl = iacl;
 	}
 	public static long getWorkday_num() {
 		return workday_num;
 	}
-	public static void setWorkday_num(long workday_num) {
-		Employees.workday_num = workday_num;
+	public static void setWorkday_num(long iworkday_num) {
+		workday_num = iworkday_num;
 	}
 	public static String getCreditcard() {
 		return creditcard;

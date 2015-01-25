@@ -33,6 +33,8 @@ public class GnuCashImporter {
  
 		connection = PostgresConnection.getConnection();
     	
+		Billterms.fill_billterms(connection);
+		
 		RegisterUUIDs.register_UUIDs(connection);
 		
     	import_snelstart_exports(connection);
@@ -82,9 +84,9 @@ public class GnuCashImporter {
 	    				rs.getString("root_template_guid"));
 	    	}
 	    	stmt.close();
-/*	    	Accounts.fill_accounts();
-	    	Billterms.fill_billterms();
-	    	Books.fill_books();
+/*	    	Accounts.fill_accounts(); */
+	    	Billterms.fill_billterms(connection);
+/*	    	Books.fill_books();
 	    	Budget_amounts.fill_budget_amounts();
 	    	Budgets.fill_budgets();
 	    	Commodities.fill_commodities();*/
