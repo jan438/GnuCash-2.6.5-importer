@@ -49,6 +49,7 @@ public class GnuCashImporter {
 	private static void import_snelstart_exports(Connection connection) {
 	    try {
 	    	stmt = connection.createStatement();
+	    	System.out.println("SELECT * FROM accounts;");
 	    	String sql = "SELECT * FROM accounts;";
 	    	stmt = connection.createStatement();
 	    	ResultSet rs = stmt.executeQuery(sql);
@@ -66,6 +67,7 @@ public class GnuCashImporter {
 	    				rs.getInt("placeholder"));
             }
 	    	stmt.close();
+	    	System.out.println("SELECT * FROM books;");
 	    	sql = "SELECT * FROM books;";
 	    	stmt = connection.createStatement();
 	    	rs = stmt.executeQuery(sql);
@@ -75,42 +77,31 @@ public class GnuCashImporter {
 	    				rs.getString("root_template_guid"));
 	    	}
 	    	stmt.close();
-	    	sql = "SELECT * FROM books;";
+	    	System.out.println("SELECT * FROM commodities;");
+	    	sql = "SELECT * FROM commodities;";
 	    	stmt = connection.createStatement();
 	    	rs = stmt.executeQuery(sql);
 	    	while (rs.next()) {	
 	    		System.out.println(rs.getString("guid") + " " +
-	    				rs.getString("root_account_guid") + " " +
-	    				rs.getString("root_template_guid"));
+	    				rs.getString("namespace") + " " +
+	    				rs.getString("mnemonic") + " " +
+	    				rs.getString("fullname") + " " +
+	    				rs.getString("cusip") + " " +
+	    				rs.getString("quote_flag") + " " +
+	    				rs.getString("quote_source") + " " +
+	    				rs.getString("quote_tz"));
 	    	}
 	    	stmt.close();
-/*	    	Accounts.fill_accounts(); */
-	    	Billterms.fill_billterms(connection);
-/*	    	Books.fill_books();
-	    	Budget_amounts.fill_budget_amounts();
-	    	Budgets.fill_budgets();
-	    	Commodities.fill_commodities();*/
-	    	Customers.fill_customers(connection);
+/*	    	Billterms.fill_billterms(connection);
+	    	Commodities.fill_commodities();             */
+/*	    	Customers.fill_customers(connection);
 	    	Employees.fill_employees(connection);
-/*	    	Entries.fill_entries();
-	    	fill_gnclock();
-	    	Invoices.fill_invoices();
-	    	Jobs.fill_jobs();
-	    	Lots.fill_lots();
-	    	Orders.fill_orders();
-	    	Prices.fill_prices();
-	    	Recurrences.fill_recurrences();
-	    	Schedxactions.fill_schedxactions();
-	    	Slots.fill_slots();
-	    	Splits.fill_splits();
-	    	Taxtable_entries.taxtable_entries();
-	    	Taxtables.fill_taxtables();
-	    	Transactions.fill_transactions();    */
-	    	Vendors.fill_vendors(connection);
+	    	Vendors.fill_vendors(connection);           */
+	    	Taxtables.fill_taxtables(connection);
+	    	Taxtable_entries.fill_taxtable_entries(connection); 
 	    	//fill_versions();
 	    	connection.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	    System.out.println("Bye");

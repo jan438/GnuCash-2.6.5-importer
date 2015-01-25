@@ -68,7 +68,6 @@ public class Billterms {
 			preparedStatement.executeUpdate();
 		} 
 		catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		finally {	 
@@ -76,7 +75,6 @@ public class Billterms {
 				try {
 					preparedStatement.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
