@@ -32,7 +32,9 @@ public class GnuCashImporter {
 		Connection connection = null;
  
 		connection = PostgresConnection.getConnection();
-    	
+
+		Commodities.insert_USD(connection);
+		
 		Billterms.fill_billterms(connection);
 		
 		RegisterUUIDs.register_UUIDs(connection);
@@ -92,11 +94,10 @@ public class GnuCashImporter {
 	    				rs.getString("quote_tz"));
 	    	}
 	    	stmt.close();
-/*	    	Billterms.fill_billterms(connection);
-	    	Commodities.fill_commodities();             */
-/*	    	Customers.fill_customers(connection);
+	    	Billterms.fill_billterms(connection);         
+	    	Customers.fill_customers(connection);
 	    	Employees.fill_employees(connection);
-	    	Vendors.fill_vendors(connection);           */
+	    	Vendors.fill_vendors(connection);           
 	    	Taxtables.fill_taxtables(connection);
 	    	Taxtable_entries.fill_taxtable_entries(connection); 
 	    	//fill_versions();

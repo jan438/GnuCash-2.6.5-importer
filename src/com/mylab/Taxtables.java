@@ -6,13 +6,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Taxtables {
+	/**
+	 * @param connection
+	 */
+	@SuppressWarnings("resource")
 	public static void fill_taxtables(Connection connection) {
 
 		PreparedStatement preparedStatement = null;
 		String root_uuid;
-		String commodity_uuid;
-		String activa_uuid;
-		String passiva_uuid;
+		String commodity_uuid = null;
+		String activa_uuid = null;
+		String passiva_uuid = null;
 		String selectSQL = "select * from accounts where name = ?";		 
 		try {
 			preparedStatement = connection.prepareStatement(selectSQL);
@@ -37,7 +41,37 @@ public class Taxtables {
 				commodity_uuid = rs.getString("commodity_guid");
 				System.out.println("guid Passiva: " + passiva_uuid + " commodity_guid " + commodity_uuid);
 			}
-			// Insert into accounts "Accounts Receivable" ASSET  
+			// Insert into accounts guid "Accounts Receivable" ASSET commodity_guid 100 0 activa_uuid 0 0 
+			// Insert into accounts guid "Accounts Payable" LIABILITY commodity_guid 100 0 passiva_uuid 0 0 
+			String sql = "INSERT INTO accounts (guid, name, account_type, commodity_guid, commodity_scu, non_std_scu, parent_guid, code, description, hidden, placeholder) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+			preparedStatement = connection.prepareStatement(sql);			 
+			preparedStatement.setString(1, GenerateUUID.getUUID());
+			preparedStatement.setString(2, "Accounts Receivable");
+			preparedStatement.setString(3, "ASSET");
+			preparedStatement.setString(4, commodity_uuid);
+			preparedStatement.setInt(5, 100);
+			preparedStatement.setInt(6, 0);
+			preparedStatement.setString(7, activa_uuid);
+			preparedStatement.setString(8, "");
+			preparedStatement.setString(9, "Accounts Receivable");
+			preparedStatement.setInt(10, 0);
+			preparedStatement.setInt(11, 0);
+			System.out.println(sql);
+			preparedStatement.executeUpdate();
+			preparedStatement = connection.prepareStatement(sql);			 
+			preparedStatement.setString(1, GenerateUUID.getUUID());
+			preparedStatement.setString(2, "Accounts Payable");
+			preparedStatement.setString(3, "LIABILITY");
+			preparedStatement.setString(4, commodity_uuid);
+			preparedStatement.setInt(5, 100);
+			preparedStatement.setInt(6, 0);
+			preparedStatement.setString(7, passiva_uuid);
+			preparedStatement.setString(8, "");
+			preparedStatement.setString(9, "Accounts Payable");
+			preparedStatement.setInt(10, 0);
+			preparedStatement.setInt(11, 0);
+			System.out.println(sql);
+			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		} finally {
