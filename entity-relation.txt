@@ -1,43 +1,47 @@
-Taxtables
+Start with an initial setup saved in Postgres
+
+First get the stored information from the accounts table with names Root Account, Activa, Passiva, Creditkaart and Kredietlijn
+
+Second add "CURRENCY" "USD" "US-dollar" "840" 100 0 "currency" ""
+
+From there create accounts Activa Account Accounts Receivable ASSET and Passiva Account Accounts Payable LIABILITY.
+
+Then setup the Taxtables with Dutch BTW tarifs
 
 Hoog	21
 Laag    6
 Nul	0   		 
 
-
-Currencies
-
-EUR (euro)
-USD (US-dollar)
-
-Billterms
-
-1	Betaling dient te geschieden binnen 10 dagen na factuurdatum op een door gebruiker aan te geven wijze.
-2	Reclames dient u binnen een week na dagtekening van de originele factuur schriftelijk kenbaar te maken.
-
+Then import business partners cusomers, vendors and employees from spreadsheets.
 customers jobs invoices
 
-tax_included    ja				1
-		neen				2
-		algemene instelling gebuiken	3
+Customers 
 
-discount_num	1100000	Korting (percentage)	11
-credit_num	150000	Krediet limiet		1500,00		
+	tax_included    ja				1
+			neen				2
+			algemene instelling gebuiken	3
 
-tax_override    ja		1
-		neen		0
+	discount_num	1100000	Korting (percentage)	11
+	credit_num	150000	Krediet limiet		1500,00		
 
-Betaling via Assets Account Accounts Receivable
-
-
-vendors jobs invoices
-
-Betaling via Passiva Account Accounts Payable
+	tax_override    ja		1
+			neen		0
 
 
-employees
+Vendors
 
-3ca333c52826fd2085aa6a2e8f602f42	Creditkaart
-716f55cdf6b95b291be9a78f8aefb36d	Kredietlijn
+
+Employees
+
+
+For the customers and the vendors you now can create jobs (Opdrachten).
+For the jobs you can create invoices.
+
+The invoices have to be posted before payments can be processed.
+
+
+Todo:
+5bf7edd27f5e1d07c8a387a5386f3bbb Debiteuren RECEIVABLE 9d0a5f61c72663268ddb0867610af0bd 100 0 4eac8c115c7c5cd6aff812bd1b7d2c16 Debiteuren Debiteuren 0 0
+625d5d418fcd6c11a694bd4acceb6191 Crediteuren PAYABLE 9d0a5f61c72663268ddb0867610af0bd 100 0 4eac8c115c7c5cd6aff812bd1b7d2c16 Crediteuren Crediteuren 0 0
 
 

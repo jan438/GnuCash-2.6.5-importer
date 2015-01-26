@@ -9,72 +9,85 @@ public class Taxtables {
 	/**
 	 * @param connection
 	 */
-	@SuppressWarnings("resource")
+	@SuppressWarnings({ "resource", "null" })
 	public static void fill_taxtables(Connection connection) {
-
+		// Hoog	21
+		// Laag    6
+		// Nul	0
 		PreparedStatement preparedStatement = null;
-		String root_uuid;
-		String commodity_uuid = null;
-		String activa_uuid = null;
-		String passiva_uuid = null;
-		String selectSQL = "select * from accounts where name = ?";		 
+		String uuid_hoog = GenerateUUID.getUUID();
+		String uuid_laag = GenerateUUID.getUUID();
+		String uuid_nul = GenerateUUID.getUUID();
+		String uuid_ar = null;
+
 		try {
-			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, "Root Account");
+			String sql = "select * from accounts where name = ?";		 
+			preparedStatement = connection.prepareStatement(sql);			 
+			preparedStatement.setString(1, "Accounts Receivable");
 			ResultSet rs = preparedStatement.executeQuery();
 			while (rs.next()) {
-				root_uuid = rs.getString("guid");
-				commodity_uuid = rs.getString("commodity_guid");
-				System.out.println("guid Root: " + root_uuid + " commodity_guid " + commodity_uuid);
+				uuid_ar = rs.getString("guid");
+				System.out.println("guid Accounts Receivable: " + uuid_ar);
 			}
-			preparedStatement.setString(1, "Activa");
-			rs = preparedStatement.executeQuery();
-			while (rs.next()) {
-				activa_uuid = rs.getString("guid");
-				commodity_uuid = rs.getString("commodity_guid");
-				System.out.println("guid Activa: " + activa_uuid + " commodity_guid " + commodity_uuid);
-			}
-			preparedStatement.setString(1, "Passiva");
-			rs = preparedStatement.executeQuery();
-			while (rs.next()) {
-				passiva_uuid = rs.getString("guid");
-				commodity_uuid = rs.getString("commodity_guid");
-				System.out.println("guid Passiva: " + passiva_uuid + " commodity_guid " + commodity_uuid);
-			}
-			// Insert into accounts guid "Accounts Receivable" ASSET commodity_guid 100 0 activa_uuid 0 0 
-			// Insert into accounts guid "Accounts Payable" LIABILITY commodity_guid 100 0 passiva_uuid 0 0 
-			String sql = "INSERT INTO accounts (guid, name, account_type, commodity_guid, commodity_scu, non_std_scu, parent_guid, code, description, hidden, placeholder) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+			System.out.println("Inserting records into the commodities table...");
+			sql = "INSERT INTO taxtables (guid, name, refcount, invisible, parent) VALUES (?,?,?,?,?)";
 			preparedStatement = connection.prepareStatement(sql);			 
-			preparedStatement.setString(1, GenerateUUID.getUUID());
-			preparedStatement.setString(2, "Accounts Receivable");
-			preparedStatement.setString(3, "ASSET");
-			preparedStatement.setString(4, commodity_uuid);
-			preparedStatement.setInt(5, 100);
-			preparedStatement.setInt(6, 0);
-			preparedStatement.setString(7, activa_uuid);
-			preparedStatement.setString(8, "");
-			preparedStatement.setString(9, "Accounts Receivable");
-			preparedStatement.setInt(10, 0);
-			preparedStatement.setInt(11, 0);
+			preparedStatement.setString(1, uuid_hoog);
+			preparedStatement.setString(2, "Hoog");
+			preparedStatement.setLong(3, 0);
+			preparedStatement.setInt(4, 0);
+			preparedStatement.setString(5, "");
 			System.out.println(sql);
 			preparedStatement.executeUpdate();
 			preparedStatement = connection.prepareStatement(sql);			 
-			preparedStatement.setString(1, GenerateUUID.getUUID());
-			preparedStatement.setString(2, "Accounts Payable");
-			preparedStatement.setString(3, "LIABILITY");
-			preparedStatement.setString(4, commodity_uuid);
-			preparedStatement.setInt(5, 100);
-			preparedStatement.setInt(6, 0);
-			preparedStatement.setString(7, passiva_uuid);
-			preparedStatement.setString(8, "");
-			preparedStatement.setString(9, "Accounts Payable");
-			preparedStatement.setInt(10, 0);
-			preparedStatement.setInt(11, 0);
+			preparedStatement.setString(1, uuid_laag);
+			preparedStatement.setString(2, "Laag");
+			preparedStatement.setLong(3, 0);
+			preparedStatement.setInt(4, 0);
+			preparedStatement.setString(5, "");
 			System.out.println(sql);
 			preparedStatement.executeUpdate();
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-		} finally {
+			preparedStatement = connection.prepareStatement(sql);			 
+			preparedStatement.setString(1, uuid_nul);
+			preparedStatement.setString(2, "Nul");
+			preparedStatement.setLong(3, 0);
+			preparedStatement.setInt(4, 0);
+			preparedStatement.setString(5, "");
+			System.out.println(sql);
+			preparedStatement.executeUpdate();
+			sql = "INSERT INTO taxtable_entries (id, taxtable, account, amount_num, amount_denom, type) VALUES (?,?,?,?,?,?)";
+			preparedStatement = connection.prepareStatement(sql);			 
+			preparedStatement.setInt(1, 1);
+			preparedStatement.setString(2, uuid_hoog);
+			preparedStatement.setString(3, uuid_ar);
+			preparedStatement.setLong(4, 2100000);
+			preparedStatement.setLong(5, 100000);
+			preparedStatement.setInt(6, 2);
+			System.out.println(sql);
+			preparedStatement.executeUpdate();
+			preparedStatement = connection.prepareStatement(sql);			 
+			preparedStatement.setInt(1, 2);
+			preparedStatement.setString(2, uuid_laag);
+			preparedStatement.setString(3, uuid_ar);
+			preparedStatement.setLong(4, 600000);
+			preparedStatement.setLong(5, 100000);
+			preparedStatement.setInt(6, 2);
+			System.out.println(sql);
+			preparedStatement.executeUpdate();
+			preparedStatement = connection.prepareStatement(sql);			 
+			preparedStatement.setInt(1, 3);
+			preparedStatement.setString(2, uuid_nul);
+			preparedStatement.setString(3, uuid_ar);
+			preparedStatement.setLong(4, 0);
+			preparedStatement.setLong(5, 100000);
+			preparedStatement.setInt(6, 2);
+			System.out.println(sql);
+			preparedStatement.executeUpdate();
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {	 
 			if (preparedStatement != null) {
 				try {
 					preparedStatement.close();
@@ -82,6 +95,7 @@ public class Taxtables {
 					e.printStackTrace();
 				}
 			}
-		}		
+		}
+		System.out.println("Inserted records into the taxtable and taxtable_entries table...");	
 	}
 }
