@@ -1,7 +1,6 @@
 package com.mylab;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
@@ -14,7 +13,16 @@ public class GnuCashImporter {
 	static Map<String,String> credits = new HashMap<String,String>();
 	static Map<String,String> taxes = new HashMap<String,String>();
 	static Map<String,String> terms = new HashMap<String,String>();
+	static String BTW;
 	
+	public static String getBTW() {
+		return BTW;
+	}
+
+	public static void setBTW(String bTW) {
+		BTW = bTW;
+	}
+
 	public static void main(String[] args) {
         
 		System.out.println("Hello, World");
