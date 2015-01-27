@@ -290,7 +290,7 @@ public class Customers {
 	}
 	public static void readAccounts() {
 		try {
-			FileInputStream file = new FileInputStream(new File("/home/marijke/GnuCash-2.6.5-importer/GnuCash-2.6.5-importer/SnelStartCustomerExport0001.xlsx"));
+			FileInputStream file = new FileInputStream(new File("/home/jan/git/GnuCash-2.6.5-importer/SnelStartCustomerExport0001.xlsx"));
 
 		    //Create Workbook instance holding reference to .xlsx file
 		    @SuppressWarnings("resource")
