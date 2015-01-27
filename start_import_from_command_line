@@ -1,1 +1,1 @@
-java -cp /home/marijke/Downloads/postgresql-9.3-1102.jdbc41.jar:/home/marijke/Downloads/poi-3.11/poi-3.11-20141221.jar:/home/marijke/Downloads/poi-3.11/poi-ooxml-3.11-20141221.jar:/home/marijke/Downloads/poi-3.11/ooxml-lib/xmlbeans-2.6.0.jar:GnuCash-2.6.5-Importer.jar com.mylab.GnuCashImporter
+java -cp /home/jan/Downloads/postgresql-9.3-1102.jdbc41.jar:/home/jan/Downloads/poi-3.11/poi-3.11-20141221.jar:/home/jan/Downloads/poi-3.11/poi-ooxml-3.11-20141221.jar:/home/jan/Downloads/poi-3.11/ooxml-lib/xmlbeans-2.6.0.jar:GnuCash-2.6.5-importer.jar com.mylab.GnuCashImporter
