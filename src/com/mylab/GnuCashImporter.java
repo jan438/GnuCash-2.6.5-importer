@@ -19,8 +19,8 @@ public class GnuCashImporter {
 		return BTW;
 	}
 
-	public static void setBTW(String bTW) {
-		BTW = bTW;
+	public static void setBTW(String iBTW) {
+		BTW = iBTW;
 	}
 
 	public static void main(String[] args) {

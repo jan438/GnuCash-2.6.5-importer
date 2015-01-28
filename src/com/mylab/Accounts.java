@@ -26,7 +26,7 @@ public class Accounts {
 				commodity_uuid = rs.getString("commodity_guid");
 				System.out.println("guid Root: " + root_uuid + " commodity_guid " + commodity_uuid);
 			}
-			preparedStatement.setString(1, "Activa");
+			preparedStatement.setString(1, "Huidige Activa");
 			rs = preparedStatement.executeQuery();
 			while (rs.next()) {
 				activa_uuid = rs.getString("guid");

@@ -24,7 +24,6 @@ public class Taxtables {
 //		String uuid_ar = null;
 		String uuid_debiteuren = null;
 		String uuid_crediteuren = null;
-
 		try {
 			String sql = "select * from accounts where name = ?";		 
 			preparedStatement = connection.prepareStatement(sql);			 
@@ -41,7 +40,7 @@ public class Taxtables {
 				uuid_crediteuren = rs.getString("guid");
 				System.out.println("guid Crediteuren: " + uuid_crediteuren);
 			}
-			System.out.println("Inserting records into the commodities table...");
+			System.out.println("Inserting records into the taxtables and taxtable_entries tables...");
 			sql = "INSERT INTO taxtables (guid, name, refcount, invisible, parent) VALUES (?,?,?,?,?)";
 			preparedStatement = connection.prepareStatement(sql);			 
 			preparedStatement.setString(1, uuid_deb_hoog);
@@ -51,6 +50,7 @@ public class Taxtables {
 			preparedStatement.setString(5, "");
 			System.out.println(sql);
 			preparedStatement.executeUpdate();
+			GnuCashImporter.taxes.put("Hoog",uuid_deb_hoog);
 			preparedStatement = connection.prepareStatement(sql);			 
 			preparedStatement.setString(1, uuid_deb_laag);
 			preparedStatement.setString(2, "Laag");
@@ -59,6 +59,7 @@ public class Taxtables {
 			preparedStatement.setString(5, "");
 			System.out.println(sql);
 			preparedStatement.executeUpdate();
+			GnuCashImporter.taxes.put("Laag",uuid_deb_laag);
 			preparedStatement = connection.prepareStatement(sql);			 
 			preparedStatement.setString(1, uuid_deb_nul);
 			preparedStatement.setString(2, "Nul");
@@ -67,6 +68,7 @@ public class Taxtables {
 			preparedStatement.setString(5, "");
 			System.out.println(sql);
 			preparedStatement.executeUpdate();
+			GnuCashImporter.taxes.put("Nul",uuid_deb_nul);
 			sql = "INSERT INTO taxtable_entries (id, taxtable, account, amount_num, amount_denom, type) VALUES (?,?,?,?,?,?)";
 			preparedStatement = connection.prepareStatement(sql);			 
 			preparedStatement.setInt(1, 1);
