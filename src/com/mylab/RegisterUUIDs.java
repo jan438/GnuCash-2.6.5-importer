@@ -71,23 +71,6 @@ public class RegisterUUIDs {
 				System.out.println("guid : " + uuid + " Nul");
 				GnuCashImporter.taxes.put("Nul" ,uuid);
 			}
-			selectSQL = "select * from billterms where name = ?";
-			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, "1");
-			rs = preparedStatement.executeQuery();
-			while (rs.next()) {
-				uuid = rs.getString("guid");
-				System.out.println("guid : " + uuid + " 1");
-				GnuCashImporter.terms.put("1" ,uuid);
-			}
-			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, "2");
-			rs = preparedStatement.executeQuery();
-			while (rs.next()) {
-				uuid = rs.getString("guid");
-				System.out.println("guid : " + uuid + " 2");
-				GnuCashImporter.terms.put("2" ,uuid);
-			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		} finally {

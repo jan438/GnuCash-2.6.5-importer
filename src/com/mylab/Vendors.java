@@ -128,7 +128,7 @@ public class Vendors {
 		public static String getTerms() {
 			return terms;
 		}
-		public static void setTerms(int iterms) {
+		public static void setTerms(String iterms) {
 			terms = GnuCashImporter.terms.get(iterms);
 		}
 		public static String getTax_included() {
@@ -176,7 +176,6 @@ public class Vendors {
 				preparedStatement.executeUpdate();
 			} 
 		    catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		    finally {	 
@@ -184,7 +183,6 @@ public class Vendors {
 		    		try {
 						preparedStatement.close();
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 		    	}
@@ -271,8 +269,8 @@ public class Vendors {
 									setAddr_email(cell.getStringCellValue());
 								}
 								break;
-			        	case 15:if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-									setTerms((int) cell.getNumericCellValue());
+			        	case 15:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+									setTerms(cell.getStringCellValue());
 								}
 								break;
 			        	case 16:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {

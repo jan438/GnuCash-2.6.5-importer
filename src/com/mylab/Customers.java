@@ -212,7 +212,7 @@ public class Customers {
 	public static String getTerms() {
 		return terms;
 	}
-	public static void setTerms(int iterms) {
+	public static void setTerms(String iterms) {
 		terms = GnuCashImporter.terms.get(iterms);
 	}
 	public static int getTax_included() {
@@ -273,7 +273,6 @@ public class Customers {
 			preparedStatement.executeUpdate();
 		} 
 	    catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	    finally {	 
@@ -281,7 +280,6 @@ public class Customers {
 	    		try {
 					preparedStatement.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 	    	}
@@ -416,8 +414,8 @@ public class Customers {
 								setShipaddr_email(cell.getStringCellValue());
  							}
  							break;
-		        	case 27:if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-								setTerms((int) cell.getNumericCellValue());
+		        	case 27:if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+								setTerms(cell.getStringCellValue());
 							}
 							break;
 		        	case 28:if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {

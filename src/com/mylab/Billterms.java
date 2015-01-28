@@ -48,11 +48,12 @@ public class Billterms {
 	}		
 	private static void insert_into_table() {
 		PreparedStatement preparedStatement = null;
+		String terms_uuid = GenerateUUID.getUUID();
 		System.out.println("Inserting records into the billterms table...");
 		try {     
 			String sql = "INSERT INTO billterms (guid, name, description, refcount, invisible, parent, type, duedays, discountdays, discount_num, discount_denom, cutoff) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 			preparedStatement = conn.prepareStatement(sql);			 
-			preparedStatement.setString(1, GenerateUUID.getUUID());
+			preparedStatement.setString(1, terms_uuid);
 			preparedStatement.setString(2, getName());
 			preparedStatement.setString(3, getDescription());
 			preparedStatement.setInt(4, getRefcount());
@@ -66,6 +67,7 @@ public class Billterms {
 			preparedStatement.setInt(12, getCutoff());
 			System.out.println(sql);
 			preparedStatement.executeUpdate();
+			GnuCashImporter.terms.put(getName(), terms_uuid);
 		} 
 		catch (SQLException e) {
 			e.printStackTrace();
