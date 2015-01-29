@@ -94,7 +94,7 @@ public class Accounts {
 			preparedStatement.setInt(6, 0);
 			preparedStatement.setString(7, passiva_uuid);
 			preparedStatement.setString(8, "Crediteuren");
-			preparedStatement.setString(9, "Leveranciers");
+			preparedStatement.setString(9, "Leveranciers-Werknemers");
 			preparedStatement.setInt(10, 0);
 			preparedStatement.setInt(11, 0);
 			System.out.println(sql);
