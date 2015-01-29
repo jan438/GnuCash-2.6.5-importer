@@ -1,0 +1,8 @@
+Menu:		Rapporten - MKB - Afdrukbare factuur
+
+Bewerken:	Rapportopties
+
+Naam 			Afdrukbare factuur
+Opmaaksjabloon		Kleurrijk1
+Verkoopfactuurnummer	000004 (geboekt)
+Aangepaste titel	Pretty invoice
