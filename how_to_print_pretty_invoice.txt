@@ -4,5 +4,5 @@ Bewerken:	Rapportopties
 
 Naam 			Afdrukbare factuur
 Opmaaksjabloon		Kleurrijk1
-Verkoopfactuurnummer	000004 (geboekt)
+Verkoopfactuurnummer	000003 (geboekt)
 Aangepaste titel	Pretty invoice
