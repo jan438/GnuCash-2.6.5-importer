@@ -48,29 +48,6 @@ public class RegisterUUIDs {
 				System.out.println("guid : " + uuid + " Kredietlijn");
 				GnuCashImporter.credits.put("Kredietlijn" ,uuid);
 			}
-			selectSQL = "select * from taxtables where name = ?";
-			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, "Hoog");
-			rs = preparedStatement.executeQuery();
-			while (rs.next()) {
-				uuid = rs.getString("guid");
-				System.out.println("guid : " + uuid + " Hoog");
-				GnuCashImporter.taxes.put("Hoog" ,uuid);
-			}
-			preparedStatement.setString(1, "Laag");
-			rs = preparedStatement.executeQuery();
-			while (rs.next()) {
-				uuid = rs.getString("guid");
-				System.out.println("guid : " + uuid + " Laag");
-				GnuCashImporter.taxes.put("Laag" ,uuid);
-			}
-			preparedStatement.setString(1, "Nul");
-			rs = preparedStatement.executeQuery();
-			while (rs.next()) {
-				uuid = rs.getString("guid");
-				System.out.println("guid : " + uuid + " Nul");
-				GnuCashImporter.taxes.put("Nul" ,uuid);
-			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		} finally {
