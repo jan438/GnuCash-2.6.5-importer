@@ -12,16 +12,13 @@ public class Taxtables {
 	@SuppressWarnings({ "resource" })
 	public static void fill_taxtables(Connection connection) {
 		// Hoog	21
-		// Laag    6
+		// Laag	6
 		// Nul	0
 		PreparedStatement preparedStatement = null;
 		String uuid_deb_hoog = GenerateUUID.getUUID();
 		String uuid_deb_laag = GenerateUUID.getUUID();
 		String uuid_deb_nul = GenerateUUID.getUUID();
-//		String uuid_cre_hoog = GenerateUUID.getUUID();
-//		String uuid_cre_laag = GenerateUUID.getUUID();
-//		String uuid_cre_nul = GenerateUUID.getUUID();
-//		String uuid_ar = null;
+		String uuid_deb_marge = GenerateUUID.getUUID();
 		String uuid_debiteuren = null;
 		String uuid_crediteuren = null;
 		try {
@@ -69,6 +66,15 @@ public class Taxtables {
 			System.out.println(sql);
 			preparedStatement.executeUpdate();
 			GnuCashImporter.taxes.put("Nul",uuid_deb_nul);
+			preparedStatement = connection.prepareStatement(sql);			 
+			preparedStatement.setString(1, uuid_deb_marge);
+			preparedStatement.setString(2, "Marge");
+			preparedStatement.setLong(3, 0);
+			preparedStatement.setInt(4, 0);
+			preparedStatement.setString(5, "");
+			System.out.println(sql);
+			preparedStatement.executeUpdate();
+			GnuCashImporter.taxes.put("Marge",uuid_deb_marge);
 			sql = "INSERT INTO taxtable_entries (id, taxtable, account, amount_num, amount_denom, type) VALUES (?,?,?,?,?,?)";
 			preparedStatement = connection.prepareStatement(sql);			 
 			preparedStatement.setInt(1, 1);
@@ -95,6 +101,15 @@ public class Taxtables {
 			preparedStatement.setLong(4, 0);
 			preparedStatement.setLong(5, 100000);
 			preparedStatement.setInt(6, 2);
+			System.out.println(sql);
+			preparedStatement.executeUpdate();
+			preparedStatement = connection.prepareStatement(sql);			 
+			preparedStatement.setInt(1, 4);
+			preparedStatement.setString(2, uuid_deb_marge);
+			preparedStatement.setString(3, GnuCashImporter.getBTW());
+			preparedStatement.setLong(4, 0);
+			preparedStatement.setLong(5, 100000);
+			preparedStatement.setInt(6, 1);
 			System.out.println(sql);
 			preparedStatement.executeUpdate();
 		} 
